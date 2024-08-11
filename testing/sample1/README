@@ -1,0 +1,7 @@
+npm install --save-dev ts-jest @jest/globals
+
+npx ts-jest config:init
+
+"scripts": {
+    "test": "jest"
+},
