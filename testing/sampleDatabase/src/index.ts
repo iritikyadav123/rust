@@ -27,8 +27,8 @@ app.post('/sum', async(req,res) => {
 
     const request =  await prismaClient.cal.create({
         data : {
-            b : parseValidation.data.a,
-            a : parseValidation.data.b,
+            b : parseValidation.data.b,
+            a : parseValidation.data.a,
             answer : parseValidation.data.a + parseValidation.data.b,
             type : "sum"
         }
