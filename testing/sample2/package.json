@@ -1,0 +1,22 @@
+{
+  "name": "sample2",
+  "version": "1.0.0",
+  "description": "/** @type {import('ts-jest').JestConfigWithTsJest} */\r module.exports = {\r   preset: 'ts-jest',\r   testEnvironment: 'node',\r   testMatch: [\"<rootDir>/src/tests/**/*.ts\"]\r };",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/supertest": "^6.0.2",
+    "express": "^4.19.2",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "ts-jest": "^29.2.4"
+  }
+}
