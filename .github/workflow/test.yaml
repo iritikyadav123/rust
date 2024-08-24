@@ -19,9 +19,9 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: ./testing/sampleDatabase
+        working-directory: sampleDatabase
         run: npm install && npx prisma generate
 
       - name: Run tests
-        working-directory: ./testing/sampleDatabase
+        working-directory: sampleDatabase
         run: npm run test
