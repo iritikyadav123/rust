@@ -1,0 +1,39 @@
+ # Bootstraping Integration tests in vitest
+ -   Add vitest as a dependency
+   
+
+    npm i vitest
+
+   -   Add a docker-compose with all your external services
+  
+
+     version: '3.8'
+    services:
+      db:
+        image: postgres
+        restart: always
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=mysecretpassword
+        ports:
+          - '5432:5432'
+-   Crate `src/tests/helpers/reset-db.ts`
+-
+
+    import { PrismaClient } from '@prisma/client'
+    
+    const prisma = new PrismaClient()
+    
+    export default async () => {
+      await prisma.$transaction([
+        prisma.request.deleteMany(),
+      ])
+    }
+
+-   Create a new script `[scripts/run-integration.sh](http://run-integration.sh/)`
+
+`docker-compose up -d`
+
+-   Bring in [`wait-for-it.sh`](http://wait-for-it.sh/) locally in `scripts/wait-for-it.sh`
+
+    curl https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -o scripts/wait-for-it.sh
